@@ -1,0 +1,661 @@
+---
+---
+
+<section id="inicio" class="hero">
+  <!-- Background layers -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg__grid"></div>
+    <div class="hero-bg__radial-left"></div>
+    <div class="hero-bg__radial-right"></div>
+    <div class="hero-bg__ring-1"></div>
+    <div class="hero-bg__ring-2"></div>
+    <div class="hero-bg__noise"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- ─── Text content ─── -->
+      <div class="hero-content">
+        <span class="section-label">Herramientas Profesionales</span>
+
+        <h1 class="hero-title">
+          <span class="hero-title__line">TALADROS</span>
+          <span class="hero-title__line hero-title__line--accent">DE ALTO</span>
+          <span class="hero-title__line">RENDIMIENTO</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          <!-- Subtítulo por agregar — descripción del negocio, propuesta de valor, etc. -->
+          Descripción del negocio por agregar. Potencia, precisión y durabilidad para los proyectos más exigentes.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#catalogo" class="btn btn--primary hero-cta__main">
+            Ver Catálogo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+          <a href="#contacto" class="btn btn--outline">Contáctanos</a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat__num">00<span class="hero-stat__plus">+</span></span>
+            <span class="hero-stat__label">Modelos</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat__num">00<span class="hero-stat__plus">+</span></span>
+            <span class="hero-stat__label">Clientes</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat__num">00</span>
+            <span class="hero-stat__label">Años</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Drill animation ─── -->
+      <div class="hero-drill" id="heroDrill">
+        <div class="drill-wrapper">
+          <!-- Animated glow rings -->
+          <div class="drill-ring drill-ring--1" aria-hidden="true"></div>
+          <div class="drill-ring drill-ring--2" aria-hidden="true"></div>
+          <div class="drill-ring drill-ring--3" aria-hidden="true"></div>
+
+          <!-- The Drill SVG -->
+          <svg
+            class="drill-svg"
+            viewBox="0 0 540 360"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Taladro profesional"
+            role="img"
+          >
+            <defs>
+              <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2e2e2e"/>
+                <stop offset="55%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#0f0f0f"/>
+              </linearGradient>
+              <linearGradient id="accentGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#d97706"/>
+              </linearGradient>
+              <linearGradient id="chuckGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6b7280"/>
+                <stop offset="100%" stop-color="#374151"/>
+              </linearGradient>
+              <linearGradient id="handleGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e1e1e"/>
+                <stop offset="100%" stop-color="#0a0a0a"/>
+              </linearGradient>
+              <filter id="drill-shadow" x="-15%" y="-15%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.7"/>
+              </filter>
+              <filter id="led-glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="accent-glow">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Ground shadow -->
+            <ellipse cx="262" cy="330" rx="205" ry="14" fill="#000" opacity="0.35"/>
+
+            <!-- ═══ DRILL BIT ═══ -->
+            <!-- Spiral groove lines on bit -->
+            <line x1="22" y1="172" x2="88" y2="172" stroke="#000" stroke-width="6" opacity="0.25"/>
+            <!-- Bit tapered tip -->
+            <polygon points="18,172 88,161 88,183" fill="#8b9eb8"/>
+            <!-- Bit body -->
+            <rect x="85" y="163" width="8" height="18" rx="2" fill="#9ca3af"/>
+            <!-- Spiral line on bit -->
+            <path d="M 30,165 Q 45,158 60,165 Q 75,172 88,165" stroke="#6b7280" stroke-width="1" fill="none" opacity="0.6"/>
+            <path d="M 30,179 Q 45,172 60,179 Q 75,186 88,179" stroke="#6b7280" stroke-width="1" fill="none" opacity="0.6"/>
+
+            <!-- ═══ CHUCK ═══ -->
+            <!-- Chuck body -->
+            <rect x="93" y="148" width="64" height="48" rx="6" fill="url(#chuckGrad)"/>
+            <!-- Chuck grip rings -->
+            <rect x="93" y="148" width="11" height="48" rx="3" fill="#4b5563"/>
+            <rect x="107" y="148" width="11" height="48" rx="3" fill="#4b5563"/>
+            <rect x="121" y="148" width="11" height="48" rx="3" fill="#4b5563"/>
+            <rect x="135" y="148" width="11" height="48" rx="3" fill="#4b5563"/>
+            <rect x="149" y="148" width="8" height="48" rx="4" fill="#374151"/>
+            <!-- Chuck front rim -->
+            <rect x="93" y="150" width="5" height="44" rx="2" fill="#6b7280" opacity="0.5"/>
+
+            <!-- Spinning dashed ring (animated via CSS) at chuck tip -->
+            <circle
+              class="bit-spin"
+              cx="93"
+              cy="172"
+              r="22"
+              fill="none"
+              stroke="#f59e0b"
+              stroke-width="1.5"
+              stroke-dasharray="5 4"
+              opacity="0.55"
+            />
+
+            <!-- ═══ MAIN BODY ═══ -->
+            <rect x="157" y="118" width="274" height="108" rx="22" fill="url(#bodyGrad)" filter="url(#drill-shadow)"/>
+            <!-- Top gloss highlight -->
+            <rect x="164" y="122" width="260" height="30" rx="16" fill="#303030" opacity="0.45"/>
+            <!-- Bottom edge shadow -->
+            <rect x="164" y="214" width="260" height="8" rx="4" fill="#000" opacity="0.4"/>
+            <!-- Side inner edge left -->
+            <rect x="157" y="125" width="8" height="102" rx="4" fill="#222" opacity="0.5"/>
+
+            <!-- ── Yellow accent stripe ── -->
+            <rect x="238" y="118" width="60" height="108" fill="url(#accentGrad)" filter="url(#accent-glow)"/>
+            <!-- Accent inner sheen -->
+            <rect x="240" y="120" width="56" height="30" rx="2" fill="#fcd34d" opacity="0.2"/>
+
+            <!-- ── Ventilation grilles ── -->
+            <rect x="380" y="133" width="7" height="80" rx="3.5" fill="#090909"/>
+            <rect x="393" y="133" width="7" height="80" rx="3.5" fill="#090909"/>
+            <rect x="406" y="133" width="7" height="80" rx="3.5" fill="#090909"/>
+
+            <!-- ── Rear end cap ── -->
+            <rect x="422" y="124" width="30" height="96" rx="15" fill="#1c1c1c"/>
+            <circle cx="437" cy="172" r="9" fill="#141414"/>
+            <circle cx="437" cy="172" r="4" fill="#252525"/>
+            <!-- Rear bolt screws -->
+            <circle cx="432" cy="135" r="3" fill="#1a1a1a"/>
+            <circle cx="442" cy="135" r="3" fill="#1a1a1a"/>
+            <circle cx="432" cy="210" r="3" fill="#1a1a1a"/>
+            <circle cx="442" cy="210" r="3" fill="#1a1a1a"/>
+
+            <!-- ── Brand plate area (placeholder) ── -->
+            <rect x="302" y="140" width="72" height="52" rx="6" fill="#f59e0b" opacity="0.07"/>
+            <rect x="305" y="143" width="66" height="46" rx="4" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.18"/>
+
+            <!-- ── LED strip on front top ── -->
+            <rect x="160" y="118" width="38" height="13" rx="6.5" fill="#fef3c7" opacity="0.75" filter="url(#led-glow)"/>
+            <!-- LED beam cone -->
+            <polygon points="160,131 120,160 160,160" fill="#fef9c3" opacity="0.03"/>
+
+            <!-- ─── HANDLE ─── -->
+            <!-- Handle top connector block -->
+            <rect x="237" y="222" width="62" height="16" rx="5" fill="#1c1c1c"/>
+            <!-- Handle body -->
+            <path d="M 230 234 C 221 282 226 318 238 332 L 298 332 C 310 318 315 282 306 234 Z" fill="url(#handleGrad)"/>
+            <!-- Handle grip lines -->
+            <path d="M 233 256 Q 268 260 303 256" stroke="#1e1e1e" stroke-width="2.5" fill="none"/>
+            <path d="M 232 270 Q 268 274 304 270" stroke="#1e1e1e" stroke-width="2.5" fill="none"/>
+            <path d="M 232 284 Q 268 288 304 284" stroke="#1e1e1e" stroke-width="2.5" fill="none"/>
+            <path d="M 233 298 Q 268 302 303 298" stroke="#1e1e1e" stroke-width="2.5" fill="none"/>
+            <path d="M 234 312 Q 268 316 302 312" stroke="#1e1e1e" stroke-width="2.5" fill="none"/>
+
+            <!-- Trigger -->
+            <rect x="252" y="246" width="24" height="44" rx="8" fill="url(#accentGrad)"/>
+            <rect x="255" y="250" width="18" height="36" rx="6" fill="#b45309" opacity="0.35"/>
+            <!-- Trigger guard hint -->
+            <path d="M 248 246 Q 240 268 248 290 L 252 290 Q 248 268 252 246 Z" fill="#1a1a1a"/>
+
+            <!-- ─── BATTERY PACK ─── -->
+            <rect x="222" y="327" width="92" height="30" rx="10" fill="#1a1a1a"/>
+            <rect x="226" y="331" width="84" height="22" rx="8" fill="#0e0e0e"/>
+            <!-- Battery terminals -->
+            <rect x="224" y="325" width="12" height="5" rx="2" fill="#252525"/>
+            <rect x="300" y="325" width="12" height="5" rx="2" fill="#252525"/>
+            <!-- Charge indicator LEDs -->
+            <circle cx="244" cy="342" r="4.5" fill="#22c55e"/>
+            <circle cx="258" cy="342" r="4.5" fill="#22c55e"/>
+            <circle cx="272" cy="342" r="4.5" fill="#22c55e"/>
+            <circle cx="286" cy="342" r="4.5" fill="#374151"/>
+            <!-- LED glow on green ones -->
+            <circle cx="244" cy="342" r="7" fill="#22c55e" opacity="0.12"/>
+            <circle cx="258" cy="342" r="7" fill="#22c55e" opacity="0.12"/>
+            <circle cx="272" cy="342" r="7" fill="#22c55e" opacity="0.12"/>
+          </svg>
+
+          <!-- Accent sparks (decorative) -->
+          <div class="drill-spark drill-spark--1" aria-hidden="true"></div>
+          <div class="drill-spark drill-spark--2" aria-hidden="true"></div>
+          <div class="drill-spark drill-spark--3" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<style>
+  /* ─── Hero layout ─── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  /* ─── Background ─── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-bg__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245, 158, 11, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 158, 11, 0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+
+  .hero-bg__radial-left {
+    position: absolute;
+    left: -15%;
+    top: 10%;
+    width: 55%;
+    height: 80%;
+    background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.07) 0%, transparent 65%);
+  }
+
+  .hero-bg__radial-right {
+    position: absolute;
+    right: -10%;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse at right center, rgba(245, 158, 11, 0.04) 0%, transparent 65%);
+  }
+
+  .hero-bg__ring-1 {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(50%, -50%);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 158, 11, 0.07);
+  }
+
+  .hero-bg__ring-2 {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(50%, -50%);
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 158, 11, 0.04);
+  }
+
+  .hero-bg__noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.018;
+  }
+
+  /* ─── Hero inner grid ─── */
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 0;
+  }
+
+  /* ─── Text content ─── */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(4.2rem, 9vw, 7.5rem);
+    letter-spacing: 0.03em;
+    line-height: 0.93;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-title__line--accent {
+    color: var(--accent);
+    text-shadow: 0 0 50px rgba(245, 158, 11, 0.35);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 420px;
+    line-height: 1.75;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-cta__main {
+    font-size: 0.9rem;
+  }
+
+  /* ─── Stats ─── */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    margin-top: 0.5rem;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .hero-stat__num {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .hero-stat__plus {
+    font-size: 1.4rem;
+    vertical-align: top;
+  }
+
+  .hero-stat__label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border-light);
+    flex-shrink: 0;
+  }
+
+  /* ─── Drill container ─── */
+  .hero-drill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .drill-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    animation: drill-float 4.5s ease-in-out infinite;
+  }
+
+  /* Pulsing rings around drill */
+  .drill-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .drill-ring--1 {
+    width: 240px;
+    height: 240px;
+    animation: ring-pulse 3.5s ease-out infinite;
+    animation-delay: 0s;
+  }
+
+  .drill-ring--2 {
+    width: 360px;
+    height: 360px;
+    animation: ring-pulse 3.5s ease-out infinite;
+    animation-delay: 1s;
+  }
+
+  .drill-ring--3 {
+    width: 480px;
+    height: 480px;
+    animation: ring-pulse 3.5s ease-out infinite;
+    animation-delay: 2s;
+  }
+
+  /* Main drill SVG */
+  .drill-svg {
+    width: 100%;
+    height: auto;
+    filter:
+      drop-shadow(0 24px 48px rgba(0,0,0,0.7))
+      drop-shadow(0 0 40px rgba(245,158,11,0.12));
+  }
+
+  /* Spinning dashed ring on chuck in SVG */
+  .bit-spin {
+    animation: bit-spin 0.7s linear infinite;
+    transform-origin: 93px 172px;
+  }
+
+  /* Accent sparks */
+  .drill-spark {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent);
+    pointer-events: none;
+  }
+
+  .drill-spark--1 {
+    width: 4px;
+    height: 4px;
+    top: 46%;
+    left: 12%;
+    animation: spark 2.4s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .drill-spark--2 {
+    width: 3px;
+    height: 3px;
+    top: 40%;
+    left: 10%;
+    animation: spark 2.4s ease-in-out infinite;
+    animation-delay: 0.4s;
+  }
+
+  .drill-spark--3 {
+    width: 5px;
+    height: 5px;
+    top: 52%;
+    left: 8%;
+    animation: spark 2.4s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  /* ─── Scroll indicator ─── */
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    animation: scroll-bob 2.2s ease-in-out infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .scroll-mouse {
+    width: 22px;
+    height: 36px;
+    border: 2px solid var(--border-light);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 6px;
+  }
+
+  .scroll-wheel {
+    width: 3px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: scroll-wheel 2.2s ease-in-out infinite;
+  }
+
+  /* ─── Keyframes ─── */
+  @keyframes drill-float {
+    0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+    50%       { transform: translateY(-20px) rotate(0deg); }
+  }
+
+  @keyframes ring-pulse {
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.75); }
+    40%  { opacity: 0.18; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  @keyframes bit-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes spark {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    30%      { opacity: 1; transform: translate(-8px, -6px) scale(1.2); }
+    60%      { opacity: 0.5; transform: translate(-14px, -10px) scale(0.8); }
+    80%      { opacity: 0; transform: translate(-18px, -14px) scale(0.4); }
+  }
+
+  @keyframes scroll-bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+  }
+
+  @keyframes scroll-wheel {
+    0%   { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(14px); opacity: 0; }
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+      padding: 4rem 0;
+    }
+
+    .hero-content {
+      align-items: center;
+      order: 2;
+    }
+
+    .hero-subtitle {
+      max-width: 100%;
+    }
+
+    .hero-drill {
+      order: 1;
+    }
+
+    .drill-wrapper {
+      max-width: 380px;
+    }
+
+    .hero-stats {
+      justify-content: center;
+    }
+
+    .hero-bg__ring-1,
+    .hero-bg__ring-2 {
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .drill-wrapper {
+      max-width: 300px;
+    }
+
+    .drill-ring--3 {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // ── Parallax on scroll ──
+  const heroDrill = document.getElementById('heroDrill');
+
+  if (heroDrill) {
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = window.innerHeight;
+          const progress = Math.min(scrollY / heroHeight, 1);
+
+          // Drift down + fade as user scrolls past hero
+          heroDrill.style.transform = `translateY(${scrollY * 0.2}px)`;
+          heroDrill.style.opacity = String(1 - progress * 0.6);
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+</script>

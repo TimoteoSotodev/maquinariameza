@@ -1,0 +1,462 @@
+---
+// Placeholder products — replace with real data when available
+const products = [
+  { id: 1, name: 'Taladro Percutor',       model: 'Modelo por agregar', price: '$0,000',  tag: 'Nuevo'   },
+  { id: 2, name: 'Taladro Inalámbrico',    model: 'Modelo por agregar', price: '$0,000',  tag: 'Popular' },
+  { id: 3, name: 'Atornillador Eléctrico', model: 'Modelo por agregar', price: '$0,000',  tag: ''        },
+  { id: 4, name: 'Taladro de Columna',     model: 'Modelo por agregar', price: '$0,000',  tag: 'Oferta'  },
+  { id: 5, name: 'Rotomartillo SDS',       model: 'Modelo por agregar', price: '$0,000',  tag: ''        },
+  { id: 6, name: 'Taladro Magnético',      model: 'Modelo por agregar', price: '$0,000',  tag: 'Pro'     },
+];
+---
+
+<section id="catalogo" class="catalog">
+  <div class="divider-glow"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="catalog-header">
+      <span class="section-label">Lo que ofrecemos</span>
+      <h2 class="section-title">
+        NUESTRO <span class="accent">CATÁLOGO</span>
+      </h2>
+      <p class="catalog-desc">
+        <!-- Descripción del catálogo por agregar -->
+        Encuentra la herramienta perfecta para cada trabajo. Calidad garantizada en cada modelo.
+      </p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="carousel-wrap">
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          {products.map((p) => (
+            <article class="product-card" data-id={p.id}>
+              {p.tag && (
+                <span class={`product-tag product-tag--${p.tag.toLowerCase()}`}>
+                  {p.tag}
+                </span>
+              )}
+
+              <!-- Image / placeholder area -->
+              <div class="product-img">
+                <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`g${p.id}`} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2a2a2a"/>
+                      <stop offset="100%" stop-color="#1a1a1a"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Mini drill icon -->
+                  <polygon points="18,82 48,76 48,88" fill="#6b7280"/>
+                  <rect x="48" y="73" width="28" height="18" rx="3" fill="#4b5563"/>
+                  <rect x="76" y="64" width="110" height="36" rx="9" fill={`url(#g${p.id})`}/>
+                  <rect x="104" y="64" width="30" height="36" fill="#f59e0b" opacity="0.65"/>
+                  <rect x="160" y="70" width="4" height="24" rx="2" fill="#0d0d0d"/>
+                  <rect x="168" y="70" width="4" height="24" rx="2" fill="#0d0d0d"/>
+                  <rect x="176" y="67" width="12" height="30" rx="5" fill="#1c1c1c"/>
+                  <path d="M 103 100 C 99 118 101 128 106 134 L 129 134 C 134 128 136 118 132 100 Z" fill={`url(#g${p.id})`}/>
+                  <rect x="105" y="108" width="10" height="18" rx="3" fill="#f59e0b" opacity="0.7"/>
+                  <rect x="100" y="131" width="35" height="10" rx="4" fill="#1c1c1c"/>
+                </svg>
+                <!-- Replace img tag comment with actual image -->
+                <!-- <img src="/images/producto-{p.id}.jpg" alt={p.name} loading="lazy" /> -->
+              </div>
+
+              <!-- Card body -->
+              <div class="product-body">
+                <p class="product-model">{p.model}</p>
+                <h3 class="product-name">{p.name}</h3>
+
+                <!-- Feature chips (placeholders) -->
+                <div class="product-chips">
+                  <span class="chip">Característica 1</span>
+                  <span class="chip">Característica 2</span>
+                </div>
+
+                <div class="product-footer">
+                  <span class="product-price">{p.price}</span>
+                  <a href="#contacto" class="btn btn--primary product-cta">
+                    Consultar
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- Prev / Next buttons -->
+      <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Anterior" disabled>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M11 3L5 9l6 6"/>
+        </svg>
+      </button>
+      <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Siguiente">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M7 3l6 6-6 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Productos"></div>
+
+    <!-- CTA footer -->
+    <div class="catalog-footer">
+      <p class="catalog-footer__text">¿No encuentras lo que buscas?</p>
+      <a href="#contacto" class="btn btn--ghost">Consulta tu modelo →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section ─── */
+  .catalog {
+    padding: var(--section-py) 0;
+    background: var(--bg-secondary);
+    position: relative;
+  }
+
+  /* ─── Header ─── */
+  .catalog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .catalog-desc {
+    color: var(--text-secondary);
+    max-width: 480px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* ─── Carousel wrapper ─── */
+  .carousel-wrap {
+    position: relative;
+  }
+
+  .carousel {
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    transition: transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  /* ─── Product card ─── */
+  .product-card {
+    flex: 0 0 calc((100% - 2.5rem) / 3);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-5px);
+    box-shadow:
+      0 20px 56px rgba(0,0,0,0.45),
+      0 0 0 1px rgba(245,158,11,0.08);
+  }
+
+  /* ─── Tag ─── */
+  .product-tag {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.22rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .product-tag--nuevo   { background: #1d4ed8; color: #fff; }
+  .product-tag--popular { background: var(--accent); color: #000; }
+  .product-tag--oferta  { background: #dc2626; color: #fff; }
+  .product-tag--pro     { background: #7c3aed; color: #fff; }
+
+  /* ─── Product image area ─── */
+  .product-img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: #0c0c0c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .product-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(245,158,11,0.04) 0%, transparent 70%);
+  }
+
+  .product-img svg {
+    width: 85%;
+    height: auto;
+    opacity: 0.55;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .product-card:hover .product-img svg {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+
+  /* ─── Card body ─── */
+  .product-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .product-model {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .product-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .product-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.3rem 0;
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    background: var(--bg);
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-price {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .product-cta {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  /* ─── Carousel nav buttons ─── */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    z-index: 10;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .carousel-btn:hover:not(:disabled) {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .carousel-btn--prev { left: -23px; }
+  .carousel-btn--next { right: -23px; }
+
+  /* ─── Dots ─── */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  /* ─── Footer CTA ─── */
+  .catalog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .catalog-footer__text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 1024px) {
+    .product-card {
+      flex: 0 0 calc((100% - 1.25rem) / 2);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-card {
+      flex: 0 0 100%;
+    }
+
+    .carousel-btn--prev { left: 0; }
+    .carousel-btn--next { right: 0; }
+
+    .catalog-footer {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  // ── Carousel logic ──
+  const track    = document.getElementById('carouselTrack') as HTMLElement | null;
+  const prevBtn  = document.getElementById('prevBtn') as HTMLButtonElement | null;
+  const nextBtn  = document.getElementById('nextBtn') as HTMLButtonElement | null;
+  const dotsEl   = document.getElementById('carouselDots') as HTMLElement | null;
+
+  if (!track || !prevBtn || !nextBtn || !dotsEl) {
+    // Elements not in DOM — bail
+  } else {
+    let current = 0;
+
+    function getVisible(): number {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640)  return 2;
+      return 1;
+    }
+
+    const totalCards = track.children.length;
+    let visible   = getVisible();
+    let maxIndex  = Math.max(0, totalCards - visible);
+
+    // ── Build / rebuild dots ──
+    function buildDots() {
+      dotsEl!.innerHTML = '';
+      for (let i = 0; i <= maxIndex; i++) {
+        const btn = document.createElement('button');
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', `Ir a producto ${i + 1}`);
+        btn.style.cssText = `
+          border: none; cursor: pointer; transition: all .3s ease; padding: 0;
+          border-radius: 4px;
+        `;
+        btn.addEventListener('click', () => goTo(i));
+        dotsEl!.appendChild(btn);
+      }
+      updateDots();
+    }
+
+    function updateDots() {
+      dotsEl!.querySelectorAll('button').forEach((btn, i) => {
+        const el = btn as HTMLButtonElement;
+        el.style.background     = i === current ? 'var(--accent)' : 'var(--border-light)';
+        el.style.width          = i === current ? '24px' : '8px';
+        el.style.height         = '8px';
+        el.setAttribute('aria-selected', String(i === current));
+      });
+    }
+
+    function goTo(index: number) {
+      current = Math.max(0, Math.min(index, maxIndex));
+
+      const card = track.firstElementChild as HTMLElement | null;
+      if (!card) return;
+      const gap       = 20; // px — matches 1.25rem gap
+      const cardWidth = card.offsetWidth;
+
+      track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+
+      prevBtn!.disabled = current === 0;
+      nextBtn!.disabled = current === maxIndex;
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Touch / swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+      const delta = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(delta) > 50) goTo(current + (delta > 0 ? 1 : -1));
+    });
+
+    // Init
+    buildDots();
+    goTo(0);
+
+    // Recompute on resize
+    window.addEventListener('resize', () => {
+      visible  = getVisible();
+      maxIndex = Math.max(0, totalCards - visible);
+      current  = Math.min(current, maxIndex);
+      buildDots();
+      goTo(current);
+    });
+  }
+</script>

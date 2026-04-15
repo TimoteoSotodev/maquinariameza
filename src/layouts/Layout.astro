@@ -1,0 +1,242 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Venta de taladros y herramientas eléctricas profesionales de alta calidad.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    /* Colors */
+    --bg: #080808;
+    --bg-secondary: #0e0e0e;
+    --bg-card: #141414;
+    --bg-card-hover: #1c1c1c;
+    --accent: #f59e0b;
+    --accent-hover: #d97706;
+    --accent-dark: #78350f;
+    --accent-glow: rgba(245, 158, 11, 0.2);
+    --accent-glow-sm: rgba(245, 158, 11, 0.1);
+    --text: #f1f5f9;
+    --text-muted: #6b7280;
+    --text-secondary: #9ca3af;
+    --border: #1f1f1f;
+    --border-light: #2a2a2a;
+    --border-accent: rgba(245, 158, 11, 0.25);
+
+    /* Typography */
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --section-py: 6rem;
+    --container-px: 1.5rem;
+    --max-width: 1200px;
+
+    /* Misc */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-xs: 6px;
+    --transition: 0.3s ease;
+    --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+  }
+
+  input,
+  textarea {
+    font-family: inherit;
+  }
+
+  /* ─── Utilities ─── */
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  /* ─── Buttons ─── */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.875rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all var(--transition);
+    border: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .btn--primary {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+
+  .btn--primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px var(--accent-glow);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-accent);
+  }
+
+  .btn--outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+  }
+
+  .btn--ghost:hover {
+    color: var(--text);
+    border-color: var(--border-accent);
+    background: var(--bg-card);
+  }
+
+  /* ─── Divider glow ─── */
+
+  .divider-glow {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+    opacity: 0.25;
+  }
+
+  /* ─── Scrollbar ─── */
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent-dark);
+    border-radius: 3px;
+  }
+
+  /* ─── Selection ─── */
+
+  ::selection {
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+</style>
