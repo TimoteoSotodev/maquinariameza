@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Catalog from '../components/Catalog.astro';
+import Contact from '../components/Contact.astro';
+import FloatingButtons from '../components/FloatingButtons.astro';
+---
+
+<Layout
+  title="Maquinaria Meza — Taladros Profesionales"
+  description="Venta de taladros y herramientas eléctricas profesionales. Calidad, potencia y precisión para cada proyecto."
+>
+  <Navbar />
+
+  <main>
+    <Hero />
+    <Catalog />
+    <Contact />
+  </main>
+
+  <FloatingButtons />
+</Layout>
