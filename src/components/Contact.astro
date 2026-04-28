@@ -493,11 +493,16 @@
 </style>
 
 <script>
-  // ── Basic form submit handler (replace with real backend/service) ──
   const form      = document.getElementById('contactForm') as HTMLFormElement | null;
   const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
   const success   = document.getElementById('formSuccess') as HTMLElement | null;
   const error     = document.getElementById('formError') as HTMLElement | null;
+
+  // Formspree endpoint — replace YOUR_FORM_ID with your actual Formspree form ID
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  const ICON_SEND = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>`;
+  const ICON_CHECK = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -508,26 +513,35 @@
     }
 
     if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled  = true;
+      submitBtn.innerHTML = 'Enviando...';
     }
 
-    // TODO: Replace with actual form submission (Formspree, EmailJS, API, etc.)
-    await new Promise((r) => setTimeout(r, 1000));
+    let ok = false;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method:  'POST',
+        headers: { 'Accept': 'application/json' },
+        body:    new FormData(form),
+      });
+      ok = res.ok;
+    } catch { /* network error — ok stays false */ }
 
-    // Show success (demo — remove in production)
-    if (success) success.hidden = false;
-    if (error)   error.hidden   = true;
-    form.reset();
-
-    if (submitBtn) {
-      submitBtn.disabled   = false;
-      submitBtn.innerHTML  = `
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-        Mensaje enviado
-      `;
+    if (ok) {
+      if (success) success.hidden = false;
+      if (error)   error.hidden   = true;
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled  = false;
+        submitBtn.innerHTML = `${ICON_CHECK} Mensaje enviado`;
+      }
+    } else {
+      if (error)   error.hidden   = false;
+      if (success) success.hidden = true;
+      if (submitBtn) {
+        submitBtn.disabled  = false;
+        submitBtn.innerHTML = `${ICON_SEND} Enviar mensaje`;
+      }
     }
   });
 </script>
